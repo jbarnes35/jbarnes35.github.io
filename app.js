@@ -9,7 +9,7 @@ app.controller('ChatController', function($scope, $firebaseArray){
         $scope.messages.$add({
             message: $scope.messageText,
             date: Date.now(),
-            user: $scope.user,
+            user: 1,
             name: $scope.name,
             img: "https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.0-9/23472207_10210403483788249_1379800557562815649_n.jpg?oh=8d1102ae25b3d8e138304492ec3ea0bd&oe=5AB208A5"
         })
