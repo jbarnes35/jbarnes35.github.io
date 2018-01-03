@@ -1,1 +1,126 @@
-<h1>test test</h1>
+<html ng-app="chatApp">
+
+<head>
+    <meta charset="utf8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <title>ทดสอบ web chat</title>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB1I9YBYAIgtOdSJi2JKTJuskohpPnJs80",
+            authDomain: "webchat-b17b4.firebaseapp.com",
+            databaseURL: "https://webchat-b17b4.firebaseio.com",
+            projectId: "webchat-b17b4",
+            storageBucket: "",
+            messagingSenderId: "245829790829"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="AdminLTE.min.css">
+</head>
+
+<body ng-controller="ChatController">
+    {{img="https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.0-9/23472207_10210403483788249_1379800557562815649_n.jpg?oh=8d1102ae25b3d8e138304492ec3ea0bd&oe=5AB208A5"}}
+    <br>
+    <!-- <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Web Chat Application</div>
+            <div class="panel-body">
+                <p ng-repeat="m in messages">{{m.message}} - {{m.date | date:'medium' }}</p>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Message..." ng-model="messageText">
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="send()">Send</button>
+            </div>
+        </div>
+    </div> -->
+    
+    <div class="row">
+        <div class="col-md-6">
+            <!-- DIRECT CHAT -->
+            <div class="box box-warning direct-chat direct-chat-warning">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Direct Chat</h3>
+
+                    <div class="box-tools pull-right">
+                        <span data-toggle="tooltip" title="3 New Messages" class="badge bg-yellow">3</span>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <!-- Conversations are loaded here -->
+                    <div class="direct-chat-messages">
+                        <!-- Message. Default to the left -->
+                        <div ng-repeat="m in messages">
+                        <div class="direct-chat-msg" ng-if="m.user!=user">
+                            <div class="direct-chat-info clearfix">
+                                <span class="direct-chat-name pull-left">{{m.name}}</span>
+                                <span class="direct-chat-timestamp pull-right">{{m.date | date:'medium'}}</span>
+                            </div>
+                            <!-- /.direct-chat-info -->
+                            <img class="direct-chat-img" src="{{m.img}}" alt="message user image">
+                            <!-- /.direct-chat-img -->
+                            <div class="direct-chat-text">
+                                {{m.message}}
+                            </div>
+                            <!-- /.direct-chat-text -->
+                        </div>
+                        <!-- /.direct-chat-msg -->
+
+                        <!-- Message to the right -->
+                        <div class="direct-chat-msg right" ng-if="m.user==user">
+                            <div class="direct-chat-info clearfix" >
+                                <span class="direct-chat-name pull-right">{{m.name}}</span>
+                                <span class="direct-chat-timestamp pull-left">{{m.date | date:'medium'}}</span>
+                            </div>
+                            <!-- /.direct-chat-info -->
+                            <!-- <img class="direct-chat-img" src="user3-128x128.jpg" alt="message user image" > -->
+                            <img class="direct-chat-img" src="{{m.img}}" alt="message user image" >
+                            <!-- /.direct-chat-img -->
+                            <div class="direct-chat-text">
+                                {{m.message}}
+                            </div>
+                            <!-- /.direct-chat-text -->
+                        </div>
+                    </div>
+                    </div>
+                    <!--/.direct-chat-messages-->
+                    <!-- /.direct-chat-pane -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <form action="#" method="post">
+                        <div class="input-group">
+                            <input type="text" name="message" placeholder="Type Message ..." class="form-control" ng-model="messageText">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-warning btn-flat" ng-click="send()">Send</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box-footer-->
+            </div>
+            <!--/.direct-chat -->
+        </div>
+        <!-- /.col -->
+
+
+        <!-- /.col -->
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="adminlte.min.js"></script>
+</body>
+
+</html>
