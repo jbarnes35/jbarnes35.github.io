@@ -12,7 +12,8 @@ app.controller('ChatController', function($scope, $firebaseArray){
             user: $scope.user,
             name: $scope.name,
             img: "https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.0-9/24232399_1507097476006004_7356528401393699794_n.jpg?oh=bf24f1bc846c5b31354157ff3b3cccbd&oe=5AC3C991"
-        })
+        });
+        $('#text').val('');
     }
     
 })
